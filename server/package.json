@@ -1,0 +1,22 @@
+{
+  "name": "pizzaprince",
+  "version": "1.0.0",
+  "description": "this is pizza shop",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "data:import": "node seeder.js"
+  },
+  "author": "Prince Gupta",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "concurrently": "^7.6.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.2",
+    "morgan": "^1.10.0",
+    "stripe": "^11.13.0",
+    "uuid": "^9.0.0"
+  }
+}
