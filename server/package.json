@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "data:import": "node seeder.js"
+    "data:import": "node seeder.js",
+    "dev": "nodemon server.js",
+    "build": "npm install"
   },
   "author": "Prince Gupta",
   "license": "ISC",
