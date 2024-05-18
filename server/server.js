@@ -18,10 +18,10 @@ const app=express();
 app.use(express.json());
 app.use(morgan('dev'));
 
-app.use("/api/pizzas", require("./routes/pizzaRoute"));
-app.use("/api/users", require("./routes/userRoute"));
-app.use("/api/orders", require("./routes/orderRoute"));
-app.get("/",()=>{
+app.use("https://oibsip-level3task.onrender.com/api/pizzas", require("./routes/pizzaRoute"));
+app.use("https://oibsip-level3task.onrender.com/api/users", require("./routes/userRoute"));
+app.use("https://oibsip-level3task.onrender.com/api/orders", require("./routes/orderRoute"));
+app.get("https://oibsip-level3task.onrender.com",()=>{
 
 });
 
