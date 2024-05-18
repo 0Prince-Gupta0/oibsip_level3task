@@ -2,9 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../Actions/userAction";
+import { useSelector } from "react-redux";
 import Card from 'react-bootstrap/Card';
+import Loader from "../components/loader";
+import Success from "../components/success";
+import Error from "../components/error";
 
 const Login = () => {
+  const registerState = useSelector((state) => state.loginUserReducer);
+  const { error, success, loading } = registerState;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -27,6 +33,9 @@ const Login = () => {
         <hr />
         <Card.Subtitle className="mb-2 text-muted text-center">Login to get your Pizza in 30min</Card.Subtitle>
         <Card.Text>
+        {loading && <Loader />}
+        {success && <Success success="User Login Successfully" />}
+        {error && <Error error="something went wrong" />}
         <Form>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control className="mt-3"

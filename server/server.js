@@ -3,9 +3,15 @@ const dotenv= require("dotenv");
 const connectDB=require("./config/config");
 require("colors");
 const morgan=require("morgan");
+const mongoose = require('mongoose');
 
-dotenv.config()
-connectDB()
+
+dotenv.config({ path: './config.env' });
+const DB = process.env.MONGO_URI.replace('<PASSWORD>', process.env.PASSWORD);
+
+mongoose.connect(DB).then(() => {
+  console.log('DB connection successful!!!');
+});
 
 const app=express();
 

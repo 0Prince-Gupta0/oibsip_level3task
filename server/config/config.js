@@ -1,18 +1,14 @@
-const mongoose=require("mongoose");
-require("colors");
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config({ path: './c.env' });
 
 const connectDB = async ()=>{
-    try {
-        mongoose.set('strictQuery', false);
-        const url = process.env.MONGO_URI;
-        const conn = mongoose.connect(url,{
-          useUnifiedTopology:true,
-          useNewUrlParser: true,
-        })
-        console.log("success");
-    } catch (error) {
-        console.log(error);
-    }
+    const DB = process.env.MONGO_URI.replace('<PASSWORD>', process.env.PASSWORD);
+
+mongoose.connect(DB).then(() => {
+  console.log('DB connection successful!!!');
+});
+
 }
 
 module.exports= connectDB;

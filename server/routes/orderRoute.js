@@ -54,8 +54,9 @@ router.post("/placeorder", async (req, res) => {
 
 router.post("/getuserorder", async (req, res) => {
   const { userid } = req.body;
+  console.log(req.body);
   try {
-    const orders = await Order.find({ userid }).sort({ _id: "-1" });
+    const orders = await Order.find({ userid }).sort({"_id":-1});
     res.status(200).send(orders);
   } catch (error) {
     res.status(400).json({

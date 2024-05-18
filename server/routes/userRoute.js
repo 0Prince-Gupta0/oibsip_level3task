@@ -19,6 +19,7 @@ router.post("/register", (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
+  // console.log(req.body);
   const { email, password } = req.body;
   try {
     const user = await User.find({ email, password });
@@ -27,8 +28,10 @@ router.post("/login", async (req, res) => {
         name: user[0].name,
         email: user[0].email,
         isAdmin: user[0].isAdmin,
-        _id: user[0].Id,
+        _id: user[0]._id.valueOf(),
       };
+      // console.log(user);
+      // console.log(currentUser);
       res.status(200).send(currentUser);
     } else {
       res.status(400).json({
@@ -36,6 +39,7 @@ router.post("/login", async (req, res) => {
       });
     }
   } catch (error) {
+    
     res.status(404).json({
       message: "Something Went wrong",
     });

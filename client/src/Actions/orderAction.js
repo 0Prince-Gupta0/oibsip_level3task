@@ -12,7 +12,7 @@ export const placeOrder = (token, subTotal) => async (dispatch, getState) => {
       cartItems,
     });
     dispatch({ type: "PLACE_ORDER_SUCCESS" });
-    // console.log(res);
+    dispatch({type:"DELETE_ALL_CART"});
   } catch (error) {
     dispatch({ type: "PLACE_ORDER_FAIL" });
     console.log(error);
@@ -21,6 +21,7 @@ export const placeOrder = (token, subTotal) => async (dispatch, getState) => {
 
 export const getUserOrders = () => async (dispatch, getState) => {
   const currentUser = getState().loginUserReducer.currentUser;
+  console.log(currentUser._id);
   dispatch({
     type: "USER_ORDER_REQUEST",
   });
